@@ -34,13 +34,22 @@ describe('User - Anonymous - Page - Landing', { tags: ['user-anon', 'page-landin
         cy.url().should('include', baseUrl + '/newest')
     })
 
-    it('Header - Comments - redirect', { tags: 'page-landing-005' }, () => {
+    it('Header - Comments - redirect', { tags: 'page-landing-004' }, () => {
         /** Given */
         cy.visit('/')
         /** When */
         cy.contains('comments').click()
         /** Then */
         cy.url().should('include', baseUrl + '/newcomments')
+    })
+
+    it('Header - Show - redirect', { tags: 'page-landing-005' }, () => {
+        /** Given */
+        cy.visit('/')
+        /** When */
+        cy.contains('show').click()
+        /** Then */
+        cy.url().should('include', baseUrl + '/show')
     })
 
     it('Header - Ask - redirect', { tags: 'page-landing-006' }, () => {
@@ -52,16 +61,7 @@ describe('User - Anonymous - Page - Landing', { tags: ['user-anon', 'page-landin
         cy.url().should('include', baseUrl + '/ask')
     })
 
-    it('Header - Show - redirect', { tags: 'page-landing-007' }, () => {
-        /** Given */
-        cy.visit('/')
-        /** When */
-        cy.contains('show').click()
-        /** Then */
-        cy.url().should('include', baseUrl + '/show')
-    })
-
-    it('Header - Jobs - redirect', { tags: 'page-landing-008' }, () => {
+    it('Header - Jobs - redirect', { tags: 'page-landing-007' }, () => {
         /** Given */
         cy.visit('/')
         /** When */
@@ -70,7 +70,7 @@ describe('User - Anonymous - Page - Landing', { tags: ['user-anon', 'page-landin
         cy.url().should('include', baseUrl + '/jobs')
     })
 
-    it('Header - Submit - redirect', { tags: 'page-landing-009' }, () => {
+    it('Header - Submit - redirect', { tags: 'page-landing-008' }, () => {
         /** Given */
         cy.visit('/')
         /** When */
@@ -79,7 +79,7 @@ describe('User - Anonymous - Page - Landing', { tags: ['user-anon', 'page-landin
         cy.url().should('include', baseUrl + '/login?how=submit&goto=submit')
     })
 
-    it('Header - Login - redirect', { tags: 'page-landing-010' }, () => {
+    it('Header - Login - redirect', { tags: 'page-landing-009' }, () => {
         /** Given */
         cy.visit('/')
         /** When */
@@ -243,7 +243,7 @@ describe('User - Anonymous - Page - Landing', { tags: ['user-anon', 'page-landin
             })
     })
 
-    it('Table - More', { tags: 'page-landing-113' }, () => {
+    it('Table - More', { tags: 'page-landing-112' }, () => {
         /** Given */
         cy.visit('/')
         cy.get('tbody')
@@ -259,7 +259,7 @@ describe('User - Anonymous - Page - Landing', { tags: ['user-anon', 'page-landin
      * *** Footer ***
      */
 
-    it('Footer - Guidlines - redirect', { tags: 'page-landing-203' }, () => {
+    it('Footer - Guidlines - redirect', { tags: 'page-landing-201' }, () => {
         /** Given */
         cy.visit('/')
         cy.get('tbody')
@@ -272,7 +272,7 @@ describe('User - Anonymous - Page - Landing', { tags: ['user-anon', 'page-landin
         cy.url().should('include', baseUrl + '/newsguidelines')
     })
 
-    it('Footer - FAQ - redirect', { tags: 'page-landing-204' }, () => {
+    it('Footer - FAQ - redirect', { tags: 'page-landing-202' }, () => {
         /** Given */
         cy.visit('/')
         cy.get('tbody')
@@ -285,20 +285,10 @@ describe('User - Anonymous - Page - Landing', { tags: ['user-anon', 'page-landin
         cy.url().should('include', baseUrl + '/newsfaq')
     })
 
-    // it('Footer - Support - redirect', { tags: 'page-landing-204' }, () => {
-    //     /** Given */
-    //     cy.visit('/')
-    //     cy.get('tbody')
-    //         .find('span[class="yclinks"]')
-    //         .find('a')
-    //         .contains(('Support'))
-    //         /** When */
-    //         .click()
-    //     /** Then */
-    //     cy.url().should('include', baseUrl + '/newsfaq.html')
-    // })
+    // it('Footer - Support - redirect', { tags: 'page-landing-203' }, () => {})
+    // [tech-debt] Capture and validate mailto address
 
-    it('Footer - API - redirect', { tags: 'page-landing-206' }, () => {
+    it('Footer - API - redirect', { tags: 'page-landing-204' }, () => {
         /** Given */
         cy.visit('/')
         cy.get('tbody')
@@ -313,7 +303,7 @@ describe('User - Anonymous - Page - Landing', { tags: ['user-anon', 'page-landin
         })
     })
 
-    it('Footer - Security - redirect', { tags: 'page-landing-207' }, () => {
+    it('Footer - Security - redirect', { tags: 'page-landing-205' }, () => {
         /** Given */
         cy.visit('/')
         cy.get('tbody')
@@ -326,7 +316,7 @@ describe('User - Anonymous - Page - Landing', { tags: ['user-anon', 'page-landin
         cy.url().should('include', baseUrl + '/security')
     })
 
-    it('Footer - Lists - redirect', { tags: 'page-landing-205' }, () => {
+    it('Footer - Lists - redirect', { tags: 'page-landing-206' }, () => {
         /** Given */
         cy.visit('/')
         cy.get('tbody')
@@ -339,7 +329,7 @@ describe('User - Anonymous - Page - Landing', { tags: ['user-anon', 'page-landin
         cy.url().should('include', baseUrl + '/lists')
     })
 
-    it('Footer - Bookmarklet - redirect', { tags: 'page-landing-208' }, () => {
+    it('Footer - Bookmarklet - redirect', { tags: 'page-landing-207' }, () => {
         /** Given */
         cy.visit('/')
         cy.get('tbody')
@@ -381,9 +371,8 @@ describe('User - Anonymous - Page - Landing', { tags: ['user-anon', 'page-landin
         })
     })
 
-    // [tech-debt] capture mailto: address and assert on email
     // it('Footer - Contact - redirect', { tags: 'page-landing-210' }, () => {})
-
+    // [tech-debt] capture mailto: address and assert on email
 
     it('Footer - Search - input', { tags: 'page-landing-211' }, () => {
         let searchTerm = faker.word.words({ count: { min: 1, max: 3 } })
